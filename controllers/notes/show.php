@@ -12,4 +12,4 @@ $note = $db->query('select * from notess where id = :id',[
 
 authorize($note['user_id'] === $currentUserId, Response::FORBIDDEN);
 
-require 'views/note.view.php';
+require 'views/notes/show.view.php';
