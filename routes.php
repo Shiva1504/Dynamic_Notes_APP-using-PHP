@@ -1,7 +1,7 @@
 <?php
 
 return [
-    '/Section2/' => 'controllers/index.php',
+    '/Section2/public/' => 'controllers/index.php',
     '/Section2/about' => 'controllers/about.php',
     '/Section2/contact' => 'controllers/contact.php',
     '/Section2/notes' => 'controllers/notes/index.php',

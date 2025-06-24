@@ -7,7 +7,7 @@
           </div>
                  <div class="hidden md:block">
           <div class="ml-10 flex items-baseline space-x-4">
-              <a href="/Section2/" class="<?= navClass('/Section2/') ?>">Home</a>
+              <a href="/Section2/public" class="<?= navClass('/Section2/public') ?>">Home</a>
               <a href="/Section2/about" class="<?= navClass('/Section2/about') ?>">About</a>
               <a href="/Section2/contact" class="<?= navClass('/Section2/contact') ?>">Contact</a>
               <a href="/Section2/notes" class="<?= navClass('/Section2/notes') ?>">My Notes</a>
