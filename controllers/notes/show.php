@@ -4,7 +4,7 @@ use Core\App;
 use Core\Database;
 use Core\Response;
 
-$db = App::container()->resolve('core\Database');
+$db = App::resolve('core\Database');
 $currentUserId = 1;
 
 $note = $db->query('select * from notess where id = :id',[

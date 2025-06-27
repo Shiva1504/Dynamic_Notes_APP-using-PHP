@@ -4,7 +4,7 @@ use Core\Database;
 use Core\Response;
 use Core\App;
 
-$db = App::container()->resolve('core\Database');
+$db = App::resolve('core\Database');
 
 $currentUserId = 1;
 
