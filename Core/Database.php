@@ -29,12 +29,23 @@ class Database{
     public function find(){
         return $this->statement->fetch();
     }
+    
+    public function abort($code = 404, $message = 'Not Found') {
+       http_response_code($code);
+       $viewFile = base_path("views/{$code}.php");
+       if (file_exists($viewFile)) {
+           require $viewFile;
+       } else {
+           echo "<h1>$code</h1><p>$message</p>";
+       }
+       exit;
+    }
 
     public function findOrfail(){
         $result = $this->find();
 
         if (! $result){
-            abort();
+            $this->abort();
         }
         return $result;
     }
@@ -42,5 +53,6 @@ class Database{
     public function get(){
         return $this->statement->fetchAll();
     }
+
 
 }

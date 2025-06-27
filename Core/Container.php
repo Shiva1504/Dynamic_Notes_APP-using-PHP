@@ -6,11 +6,13 @@ class Container
 {
     protected $bindings = [];
 
+    //Add
     public function bind(string $key, callable $resolver)
     {
         $this->bindings[$key] = $resolver;
     }
 
+    //Remove
     public function resolve(string $key)
     {
         if (!isset($this->bindings[$key])) {
