@@ -8,31 +8,13 @@ $db = new Database($config['database']);
 
 $currentUserId = 1;
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-    
-    $note = $db->query('select * from notess where id = :id',[
-        'id' => $_GET['id']
-        ])->findOrfail();
-    
-    authorize($note['user_id'] === $currentUserId, Response::FORBIDDEN);
-    
-    $db->query('delete from notess where id = :id',[
-        'id' => $_GET['id']
-    ]);
+$note = $db->query('select * from notess where id = :id',[
+'id' => $_GET['id']
+])->findOrfail();
 
-    header('location: /Section2/notes');
-    exit();    
-}
-else{
+authorize($note['user_id'] === $currentUserId, Response::FORBIDDEN);    
 
-        $note = $db->query('select * from notess where id = :id',[
-        'id' => $_GET['id']
-        ])->findOrfail();
-    
-        authorize($note['user_id'] === $currentUserId, Response::FORBIDDEN);    
-    
-        view('notes/show.view.php',[
-            'heading' => 'Note',
-            'note' => $note
-        ]);
-}
+view('notes/show.view.php',[
+    'heading' => 'Note',
+    'note' => $note
+]);

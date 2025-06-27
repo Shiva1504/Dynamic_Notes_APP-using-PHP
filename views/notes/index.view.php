@@ -15,7 +15,7 @@
        <?php endforeach; ?>
   </div>
       <p class="mb-6">
-        <a href="/Section2/notes/create" class="text-blue-500 hover:underline">Create Note</a>
+        <a href="/Section2/create" class="text-blue-500 hover:underline">Create Note</a>
       </p>
 </main>
 

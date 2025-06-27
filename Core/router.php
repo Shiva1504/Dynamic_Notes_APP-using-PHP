@@ -32,6 +32,12 @@ class Router{
 
    }
    
+   public function delete($uri, $controller){
+
+    $this->add($uri, $controller, 'DELETE');
+
+   }
+   
    public function patch($uri, $controller){
 
     $this->add($uri, $controller, 'PATCH');
@@ -57,11 +63,11 @@ class Router{
         }
     }
 
-    abort();
+    $this->abort();
 
    }
 
-   public function abort($code = 404, $message = 'Not Found') {
+   protected function abort($code = 404, $message = 'Not Found') {
        http_response_code($code);
        $viewFile = base_path("views/{$code}.php");
        if (file_exists($viewFile)) {
