@@ -49,3 +49,7 @@ function redirect($url){
     header("location: {$url}");
     exit();
 }
+
+function old($key, $default = null){    
+   return Core\Session::get('old')['email'] ?? $default;
+}
