@@ -16,4 +16,9 @@ $router->get('/Section2/edit','controllers/notes/edit.php');
 $router->patch('/Section2/edit','controllers/notes/update.php');
 
 $router->get('/Section2/register','controllers/registration/create.php')->only('guest');
-$router->post('/Section2/register','controllers/registration/store.php');
+$router->post('/Section2/register','controllers/registration/store.php')->only('guest');
+
+$router->get('/Section2/login','controllers/sessions/create.php')->only('guest');
+$router->post('/Section2/login','controllers/sessions/store.php')->only('guest');
+
+$router->delete('/Section2/logout','controllers/sessions/destroy.php')->only('auth');

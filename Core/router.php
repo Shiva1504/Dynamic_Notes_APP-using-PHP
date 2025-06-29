@@ -59,7 +59,7 @@ class Router{
     return $this;
    }
    
-   public function route($uri, $requestMethod){
+public function route($uri, $requestMethod){
 
     $requestMethod = strtoupper($requestMethod);
 
@@ -69,13 +69,16 @@ class Router{
             if ($route['middleware']) {
                 Middleware::resolve($route['middleware']);
             }
-            return require base_path($route['controller']);
+            $controllerPath = base_path($route['controller']);
+            if (!file_exists($controllerPath)) {
+                $this->abort(404, 'Controller not found');
+            }
+            return require $controllerPath;
         }
     }
 
     $this->abort();
-
-   }
+}
 
    protected function abort($code = 404, $message = 'Not Found') {
        http_response_code($code);

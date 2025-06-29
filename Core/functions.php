@@ -8,9 +8,21 @@ function dd($value) {
 }
 
 function isCurrentPage($url) {
-    return $_SERVER['REQUEST_URI'] === $url;
- }
+    $current = rtrim($_SERVER['REQUEST_URI'], '/');
+    $url = rtrim($url, '/');
+    return $current === $url;
+}
 
+function abort($code = 404, $message = 'Not Found') {
+    http_response_code($code);
+    $viewFile = base_path("views/{$code}.php");
+    if (file_exists($viewFile)) {
+        require $viewFile;
+    } else {
+        echo "<h1>$code</h1><p>$message</p>";
+    }
+    exit;
+}
 
 function navClass($path) {
     $active = 'rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white';
@@ -33,22 +45,21 @@ function view($path, $attribute = []){
     require base_path('views/' . $path);
 }
 
-function abort($code = 404, $message = 'Not Found') {
-    http_response_code($code);
-    $viewFile = base_path("views/{$code}.php");
-    if (file_exists($viewFile)) {
-        require $viewFile;
-    } else {
-        echo "<h1>$code</h1><p>$message</p>";
-    }
-    exit;
+function login(array $user)
+{
+    $_SESSION['user'] = [
+        'email' => $user['email'],
+    ];
+
+    session_regenerate_id(true);
+
 }
 
-// function isCurrentPage($path) {
-//     return strpos($_SERVER['REQUEST_URI'], $path) !== false;
-// }
+function logout(){
+    $_SESSION = [];
+    session_destroy();
 
+    $params = session_get_cookie_params();
+    setcookie('PHPSESSID','', time() - 3600, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
 
-// <?= isCurrentPage('/Test/Section2/') 
-//     ? 'rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page' 
-//     : 'rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white' ?>
+}

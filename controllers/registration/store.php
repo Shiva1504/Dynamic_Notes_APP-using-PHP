@@ -39,7 +39,6 @@ if ($user){
     exit();
 }
 else{
-
     $db->query('INSERT INTO user (email, password) VALUES (:email, :password)',
         [
             'email' => $email,
@@ -47,9 +46,12 @@ else{
         ]
     );
     
-    $_SESSION['user'] =[
+    $user = $db->query('select * from user where email = :email', [
         'email' => $email
-    ];
+    ])->find();
+
+
+    login($user);
 
     header('location: /Section2/public');
     exit();
