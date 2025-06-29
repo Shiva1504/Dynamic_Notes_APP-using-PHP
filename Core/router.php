@@ -69,7 +69,7 @@ public function route($uri, $requestMethod){
             if ($route['middleware']) {
                 Middleware::resolve($route['middleware']);
             }
-            $controllerPath = base_path($route['controller']);
+            $controllerPath = base_path('Http/controllers/' . $route['controller']);
             if (!file_exists($controllerPath)) {
                 $this->abort(404, 'Controller not found');
             }
