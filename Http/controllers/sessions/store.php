@@ -3,6 +3,7 @@
 use Core\App;
 use Http\Forms\LoginForm;
 use Core\Authenticator;
+use Core\Session;
 
 $email = trim($_POST['email']);
 $password = trim($_POST['password']);
@@ -17,9 +18,6 @@ if($form->validate($email, $password)){
     $form->error('email', 'You have provided credentials are incorrect');
 }
 
+Session::flash('errors', $form->errors());
 
-
-return view('sessions/create.view.php', [
-    'heading' => 'Sign in',
-    'errors' => $form->errors()
-]);
+redirect('/Section2/login');

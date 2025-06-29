@@ -3,6 +3,7 @@
 namespace Core;
 
 use Core\App;
+use Core\Session;
 class Authenticator{
     public function attempt($email, $password){
 
@@ -30,12 +31,8 @@ class Authenticator{
     }
     
     function logout(){
-        $_SESSION = [];
-        session_destroy();
-    
-        $params = session_get_cookie_params();
-        setcookie('PHPSESSID','', time() - 3600, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
-    
+        
+        Session::destroy();
     }
 
 }
