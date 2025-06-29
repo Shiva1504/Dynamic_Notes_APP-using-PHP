@@ -2,8 +2,8 @@
 <?php
 
 use Core\App;
-use Core\Database;
 use Core\Validator;
+use Core\Authenticator;
 
 
 $email = $_POST['email'];
@@ -50,8 +50,9 @@ else{
         'email' => $email
     ])->find();
 
+    $auth = new Authenticator();
 
-    login($user);
+    $auth->login($user);
 
     header('location: /Section2/public');
     exit();
