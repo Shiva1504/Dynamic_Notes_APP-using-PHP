@@ -1,0 +1,27 @@
+{
+    "name": "shivanaidu/section2",
+    "authors": [
+        {
+            "name": "SHIVA NAIDU",
+            "email": "dasarisambasivanaidu7@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/collections": "^12.19"
+    },
+    "autoload": {
+        "psr-4": {
+            "Core\\": "core/",
+            "Http\\": "http/",
+            "Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "pestphp/pest": "^3.8"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
