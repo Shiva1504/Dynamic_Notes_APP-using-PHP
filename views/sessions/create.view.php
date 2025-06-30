@@ -2,6 +2,8 @@
 <?php require base_path('views/partials/header.php'); ?>
 <?php require base_path('views/partials/nav.php'); ?>
 
+<?php $errors = \Core\Session::get('errors') ?? []; ?>
+<?php $old = \Core\Session::get('old') ?? []; ?>
 
 <main>
 <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
@@ -33,6 +35,9 @@
 
               <?php if (isset($errors['email'])): ?>
                 <p class="mt-3 text-sm/6 text-red-600"><?= $errors['email'] ?></p>
+              <?php endif ?>
+              <?php if (isset($errors['password'])): ?>
+                <p class="mt-3 text-sm/6 text-red-600"><?= $errors['password'] ?></p>
               <?php endif ?>
 
       <div>

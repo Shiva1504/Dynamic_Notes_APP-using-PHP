@@ -80,6 +80,10 @@ public function route($uri, $requestMethod){
     $this->abort();
 }
 
+    public function previousUrl(){
+        return $_SERVER['HTTP_REFERER'];
+    }
+
    protected function abort($code = 404, $message = 'Not Found') {
        http_response_code($code);
        $viewFile = base_path("views/{$code}.php");

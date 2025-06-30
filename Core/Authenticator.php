@@ -5,16 +5,21 @@ namespace Core;
 use Core\App;
 use Core\Session;
 class Authenticator{
-    public function attempt($email, $password){
 
+    public function attempt($email, $password){
         $user = App::resolve('core\Database')->query('select * from user where email = :email', [
             'email' => $email
         ])->find();
-        
+
+        // Fix: Check if user exists and has a password
+        if (!$user || !isset($user['password'])) {
+            return false;
+        }
+
         if (password_verify($password, $user['password'])) {
-                    $this->login([
-                        'email' => $email
-                    ]);
+            $this->login([
+                'email' => $email
+            ]);
             return true;
         }
         return false;
