@@ -12,6 +12,11 @@ class Validator{
     }
     public static function email($value)
     {
-        return filter_var($value, FILTER_VALIDATE_EMAIL) !== false;
+        return (bool) filter_var($value, FILTER_VALIDATE_EMAIL);
+    }
+
+    public static function GreaterThan(int $value, int $min): bool
+    {
+        return $value > $min;
     }
 }
