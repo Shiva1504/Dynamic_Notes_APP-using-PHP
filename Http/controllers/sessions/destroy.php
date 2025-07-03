@@ -6,5 +6,5 @@ $auth = new Authenticator();
 
 $auth->logout();
 
-header("location: /Section2/login");
+header("location: /login");
 exit();

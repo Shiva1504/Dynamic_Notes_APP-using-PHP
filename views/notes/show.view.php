@@ -7,7 +7,7 @@
 <div class="mx-auto max-w-3xl p-6 mt-10 bg-white rounded-xl shadow-md border border-gray-200">
   <!-- Go Back Link -->
   <p class="mb-4">
-    <a href="/Section2/notes" class="text-blue-600 hover:text-blue-800 font-medium underline">
+    <a href="/notes" class="text-blue-600 hover:text-blue-800 font-medium underline">
       ← Go back to Notes
     </a>
   </p>
@@ -19,7 +19,7 @@
 
   <!-- Action Buttons -->
   <div class="flex items-center gap-4">
-    <a href="/Section2/edit?id=<?= $note['id'] ?>"
+    <a href="/edit?id=<?= $note['id'] ?>"
        class="inline-block rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
       Edit
     </a>

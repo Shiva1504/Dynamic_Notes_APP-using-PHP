@@ -5,7 +5,7 @@
 
 <main>
   <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-    <form method="POST" action="/Section2/create">
+    <form method="POST" action="/create">
         <div class="col-span-full">
           <label for="body" class="block text-sm/6 font-medium text-gray-900">Body</label>
           <div class="mt-2">
@@ -20,7 +20,7 @@
         </div>        
 
         <div class="mt-6 flex items-center justify-end gap-x-6">
-          <button type="button" onclick="window.location.href='/Section2/notes'" class="text-sm/6 font-semibold text-gray-900">Cancel</button>
+          <button type="button" onclick="window.location.href='/notes'" class="text-sm/6 font-semibold text-gray-900">Cancel</button>
           <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
         </div>
     </form>

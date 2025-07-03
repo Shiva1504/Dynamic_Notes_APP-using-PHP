@@ -30,5 +30,5 @@ $db->query('INSERT INTO notess (body, user_id) VALUES (:body, :user_id)',
     ]
 );
 
-header('location: /Section2/notes');
+header('location: //notes');
 die();

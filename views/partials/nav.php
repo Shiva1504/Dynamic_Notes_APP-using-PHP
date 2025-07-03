@@ -7,11 +7,11 @@
           </div>
                  <div class="hidden md:block">
           <div class="ml-10 flex items-baseline space-x-4">
-              <a href="/Section2/public" class="<?= navClass('/Section2/public') ?>">Home</a>
-              <a href="/Section2/about" class="<?= navClass('/Section2/about') ?>">About</a>
-              <a href="/Section2/contact" class="<?= navClass('/Section2/contact') ?>">Contact</a>
+              <a href="/" class="<?= navClass('/') ?>">Home</a>
+              <a href="/about" class="<?= navClass('/about') ?>">About</a>
+              <a href="/contact" class="<?= navClass('/contact') ?>">Contact</a>
             <?php if ($_SESSION['user'] ?? false) : ?>
-              <a href="/Section2/notes" class="<?= navClass('/Section2/notes') ?>">My Notes</a>
+              <a href="/notes" class="<?= navClass('/notes') ?>">My Notes</a>
             <?php endif ?>
           </div>
         </div>
@@ -36,14 +36,14 @@
                   <img class="size-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
                 </button>
               <?php else : ?>
-              <a href="/Section2/register" class="<?= navClass('/Section2/register') ?>">Register</a>
-              <a href="/Section2/login" class="<?= navClass('/Section2/login') ?>">Login</a>
+              <a href="/register" class="<?= navClass('/register') ?>">Register</a>
+              <a href="/login" class="<?= navClass('/login') ?>">Login</a>
               <?php endif; ?>
             </div>
 
             <?php if ($_SESSION['user'] ?? false) : ?>
               <div class="ml-3">
-                <form method="POST" action="/Section2/logout">
+                <form method="POST" action="/logout">
                   <input type="hidden" name="_method" value="DELETE">
                   <button class="text-white">Log Out</button>
                 </form>

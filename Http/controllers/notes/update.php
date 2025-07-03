@@ -35,5 +35,5 @@ $db->query('UPDATE notess SET body = :body WHERE id = :id',[
     'id' => $_POST['id']]
 );
 
-header('location: /Section2/notes');
+header('location: /notes');
 die();

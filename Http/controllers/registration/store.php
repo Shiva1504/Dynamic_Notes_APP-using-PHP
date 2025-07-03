@@ -35,7 +35,7 @@ $user = $db->query('select * from user where email = :email',[
 ])->find();
 
 if ($user){
-    header('location: /Section2/register');
+    header('location: /register');
     exit();
 }
 else{
@@ -54,6 +54,6 @@ else{
 
     $auth->login($user);
 
-    header('location: /Section2/public');
+    header('location: /');
     exit();
 }

@@ -7,7 +7,7 @@ class Guest
     public function handle()
     {
         if (isset($_SESSION['user'])) {
-            header('Location: /Section2/public');
+            header('Location: /');
             exit;
         }
     }

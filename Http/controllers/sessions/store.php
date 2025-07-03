@@ -16,9 +16,9 @@ if (!$SignedIn) {
     $form->error('email', 'You have provided credentials are incorrect')->throw();
 }
 
-redirect('/Section2/public');
+redirect('/');
 
 
 // Session::flash('errors', ['email' => 'You have provided credentials are incorrect']);
 // Session::flash('old', $attributes);
-// redirect('/Section2/login');
+// redirect('/login');
