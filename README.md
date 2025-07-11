@@ -46,7 +46,7 @@ A modern, lightweight PHP MVC-style web application featuring custom routing, au
 
 1. **Clone the Repository**
     ```bash
-    git clone <your-repo-url>
+    git clone https://github.com/Shiva1504/Dynamic_Notes_APP-using-PHP.git
     cd Dynamic_Notes_APP-using-PHP
     ```
 2. **Install Dependencies**
